@@ -9,4 +9,6 @@ if (_groupID == "") exitWith { diag_log format ["GRAD GPM: Failed to add %1 due 
 _array pushBackUnique _unit;
 missionNamespace setVariable [_identifier, _array, true];
 
+_unit setVariable ["GRAD_GPM_assignedGroup", _groupID, true];
+
 diag_log format ["GRAD GPM: Successfully added %1 to %2", _unit, _groupID];
