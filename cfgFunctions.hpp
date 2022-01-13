@@ -12,6 +12,7 @@ class GRAD_grandPrixManager {
     class server {
         file = MODULES_DIRECTORY\grad-grandprixmanager\functions\server;
 
+        class addToGroup;
         class init { postInit = 1; };
     };
 };
