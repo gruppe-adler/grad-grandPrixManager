@@ -2,7 +2,7 @@
     #define MODULES_DIRECTORY node_modules
 #endif
 
-class GRAD_grandPrixManager {
+class GRAD_GPM {
 
     class client {
         file = MODULES_DIRECTORY\grad-grandprixmanager\functions\client;
