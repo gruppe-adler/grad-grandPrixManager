@@ -9,8 +9,8 @@ params ["_unit", "_taskID"];
 
 private _groupID = [_unit] call GRAD_GPM_fnc_getGroup;
 
-private _statusIdentifier = format ["GRAD_GPM_status_%1", _groupID];
-private _status = missionNamespace getVariable [_statusIdentifier, "idle"];
+private _taskState = format ["GRAD_GPM_taskState_%1", _taskID];
+private _state = missionNamespace getVariable [_taskState, "idle"];
 
 if (_status != "idle") exitWith {
     diag_log format ["GRAD GPM: Can not start activity of %1 due to status not idle.", _groupID];
