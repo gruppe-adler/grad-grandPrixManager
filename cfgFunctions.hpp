@@ -9,7 +9,6 @@ class GRAD_GPM {
 
         class clientEventhandler { postInit = 1; };
         class trackTimeGroup;
-        class trackTimeIndividual;
     };
 
     class server {

@@ -5,7 +5,7 @@
 
 */
 
-params ["_unit", "_taskID", ["_wholegroup", false]];
+params ["_unit", "_taskID", ["_aborted", false]];
 
 // get identifier variables
 private _groupID = [_unit] call GRAD_GPM_fnc_getGroup;
@@ -20,10 +20,7 @@ private _resultsIdentifier = format ["GRAD_GPM_result_task_%1_group_%2", _taskID
 private _previousResults = missionNameSpace getVariable [_resultsIdentifier, []];
 
 // stores time value during measurement
-private _timeIdentifier = format ["GRAD_GPM_currentIndividualTime_%1", _unit];
-if (_wholegroup) then {
-    _timeIdentifier = format ["GRAD_GPM_currentGroupTime_%1", _groupID];
-};
+private _timeIdentifier = format ["GRAD_GPM_currentGroupTime_%1", _groupID];
 
 if (_groupStatus == "idle") exitWith {
     diag_log format ["GRAD GPM: Can not stop activity of %1 due to status idle.", _groupID];
@@ -35,10 +32,11 @@ private _endTime = CBA_missionTime;
 private _startTime = missionNamespace getVariable [_timeIdentifier, 0];
 private _elapsedTime = _endTime - _startTime;
 
-if (_wholegroup) then {
-  _previousResults pushBack [_unit, _elapsedTime];
+// store aborted challenges too
+if (_aborted) then {
+    _previousResults pushBack ["aborted", _unit, _elapsedTime];
 } else {
-  _previousResults pushBack [_groupID, _elapsedTime];
+    _previousResults pushBack ["success", _unit, _elapsedTime];
 };
 
 // store end time in dedicated var array indefinitely

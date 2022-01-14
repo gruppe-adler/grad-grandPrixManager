@@ -5,7 +5,7 @@
 
 */
 
-params ["_unit", "_taskID", ["_wholegroup", false]];
+params ["_unit", "_taskID"];
 
 private _groupID = [_unit] call GRAD_GPM_fnc_getGroup;
 
@@ -17,11 +17,7 @@ if (_status != "idle") exitWith {
 };
 
 private _time = CBA_missionTime;
-private _timeIdentifier = format ["GRAD_GPM_currentIndividualTime_%1", _unit];
-
-if (_wholegroup) then {
-    _timeIdentifier = format ["GRAD_GPM_currentGroupTime_%1", _groupID];
-};
+private _timeIdentifier = format ["GRAD_GPM_currentGroupTime_%1", _groupID];
 
 missionNamespace setVariable [_timeIdentifier, _time, true];
 
