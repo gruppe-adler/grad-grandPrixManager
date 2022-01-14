@@ -18,7 +18,6 @@ if (_status != "idle") exitWith {
 
 private _time = CBA_missionTime;
 private _timeIdentifier = format ["GRAD_GPM_currentGroupTime_%1", _groupID];
-
 missionNamespace setVariable [_timeIdentifier, _time, true];
 
 private _taskStatusIdentifier = format ["GRAD_GPM_taskStatus_%1", _taskID];

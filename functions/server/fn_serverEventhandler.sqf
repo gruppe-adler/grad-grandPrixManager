@@ -22,3 +22,11 @@
     [_unit, _taskID, true] call GRAD_GPM_fnc_trackTimeStop;
 
 }] call CBA_fnc_addEventhandler;
+
+["GRAD_GPM_groupRename", {
+    params ["_groupID", "_name"];
+
+    GRAD_GPM_groupNames set [_groupID, _name];
+    publicVariable "GRAD_GPM_groupNames";
+
+}] call CBA_fnc_addEventhandler;
