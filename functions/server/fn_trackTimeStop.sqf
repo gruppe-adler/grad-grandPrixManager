@@ -1,4 +1,9 @@
-// unit is executing player
+/*
+
+    stops time and stores along with unit or group ID into array
+    sends event to curator for information
+
+*/
 
 params ["_unit", "_taskID", ["_wholegroup", false]];
 

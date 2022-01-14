@@ -1,4 +1,9 @@
-// unit is executing player
+/*
+
+    starts time tracking for unit or group
+    sends event to curator for information
+
+*/
 
 params ["_unit", "_taskID", ["_wholegroup", false]];
 

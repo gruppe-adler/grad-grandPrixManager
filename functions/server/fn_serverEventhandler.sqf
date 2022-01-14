@@ -1,3 +1,9 @@
+/*
+
+    Creates Eventhandlers that distribute calls on server when event is raised
+
+*/
+
 ["GRAD_GPM_trackTimeIndividualStart", {
     params ["_unit", "_taskID"];
 
