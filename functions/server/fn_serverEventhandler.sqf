@@ -23,6 +23,7 @@
 
 }] call CBA_fnc_addEventhandler;
 
+
 ["GRAD_GPM_groupRename", {
     params ["_groupID", "_name"];
 
